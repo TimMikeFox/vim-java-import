@@ -1,0 +1,9 @@
+run :so simple-import.vim
+
+:call LoadIndex()
+:call PrintImportOptions() on a word to look up that word
+
+List
+ArrayList
+Path
+NotALoadedClass
