@@ -27,3 +27,13 @@ function! PrintImportOptions()
     echo cword "is not a known java Class"
   endif
 endfunction
+
+function! AddImport()
+  let cword=expand("<cWORD>")
+  if has_key(g:java_import_dictionary, cword)
+    let import = g:java_import_dictionary[cword][0]
+    execute "normal 3GOimport ".import."\<Esc>"
+  else
+    echo cword "is not a known java Class"
+  endif
+endfunction
