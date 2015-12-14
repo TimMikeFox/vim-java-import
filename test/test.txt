@@ -1,6 +1,7 @@
 run :so simple-import.vim
 
 :call PrintImportOptions() on a word to look up that word. The dictionary is now lazily loaded for you!
+:call AddImport() on a word to add the first import definition to line 3 of the text.
 
 List
 ArrayList
