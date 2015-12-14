@@ -1,7 +1,6 @@
 run :so simple-import.vim
 
-:call LoadIndex()
-:call PrintImportOptions() on a word to look up that word
+:call PrintImportOptions() on a word to look up that word. The dictionary is now lazily loaded for you!
 
 List
 ArrayList
