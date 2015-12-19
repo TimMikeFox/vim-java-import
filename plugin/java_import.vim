@@ -1,12 +1,28 @@
+" Path of java source and class files
+let g:java_import_path=""
+let g:java_import_path_file=".java_import_path"
+
 "The file that contains our script output
-let g:java_import_index="example.index"
+let g:java_import_index=".java_import_index"
 
 "The dictionary that contains the index information for displaying posible
 "  imports
 let g:java_import_dictionary={}
 let g:java_import_dictionary_was_loaded=0
 
+function! GenerateIndex()
+    call java_import#PerlBootstrap()
+
+    echo 'Generating Index...'
+    perl JavaImport::generate_index()
+    redraw!
+endfunction
+
 function! LoadIndex()
+  if !filereadable(g:java_import_index)
+      call GenerateIndex()
+  endif
+
   let loaded_index_raw=system("cat " . g:java_import_index)
 
   let index_dictionary={}
